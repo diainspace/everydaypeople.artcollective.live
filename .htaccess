@@ -1,0 +1,24 @@
+# Shared local/live routing: Apache DocumentRoot stays at the project root.
+Options -Indexes -MultiViews
+DirectoryIndex index.php
+ErrorDocument 404 /404.php
+RewriteEngine On
+
+# Keep data, schemas, source code, tooling, and hidden files private.
+RewriteRule (^|/)\. - [F,END]
+RewriteRule ^(?:backend|frontend|includes|node_modules|vendor|tools)(?:/|$) - [F,END,NC]
+
+# Three public PHP entry points.
+RewriteRule ^$ index.php [END]
+RewriteRule ^admin$ /admin/ [R=302,END]
+RewriteRule ^admin/$ admin/index.php [END]
+RewriteRule ^archive$ /archive/ [R=302,END]
+RewriteRule ^archive/$ archive/index.php [END]
+RewriteRule ^archive/([a-z0-9]+(?:-[a-z0-9]+)*)/?$ archive/index.php?slug=$1 [END]
+RewriteRule ^(?:404|index|admin/index|archive/index)\.php$ - [END]
+
+# Serve existing public assets only; never pass through project files.
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^assets/[a-zA-Z0-9/_-]+\.(?:css|js|png|jpe?g|webp|svg|ico|woff2?)$ - [END]
+
+RewriteRule ^ - [R=404,END]

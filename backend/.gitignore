@@ -1,0 +1,4 @@
+/private/data/*.json
+/private/data/*.lock
+/private/data/.save-*
+/private/config/database.php

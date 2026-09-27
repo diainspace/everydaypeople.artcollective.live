@@ -1,0 +1,12 @@
+# macOS metadata
+.DS_Store
+
+# Git files
+.git/
+.gitignore
+
+# TIFF source artwork
+*.tif
+*.tiff
+*.TIF
+*.TIFF
