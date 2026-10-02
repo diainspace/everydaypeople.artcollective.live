@@ -6,5 +6,6 @@
         <p>&copy; <?= date('Y') ?> <?= escape(websiteContentValue($websiteContent, 'footer_copyright_statement', 'Everyday People Art Collective. All rights reserved. Reproduction without permission is prohibited.')) ?></p>
     </footer>
 </div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f7d563bc09f84ba881693553cb9c6c18"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
