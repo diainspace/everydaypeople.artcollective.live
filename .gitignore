@@ -1,3 +1,33 @@
+# macOS metadata
 .DS_Store
+
+# Environment credentials
+.env
+.env.*
+!.env.example
 backend/private/config/database.php
+
+# Private runtime data
+backend/private/data/*.json
+backend/private/data/*.lock
+backend/private/data/.save-*
+
+# Dependencies and generated frontend builds
 frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# Story images uploaded through the CMS
+assets/uploads/
+
+# Logs and temporary working files
+*.log
+*.tmp
+*.swp
+*~
+temp/
+
+# Local editor settings
+.idea/
+.vscode/*
+!.vscode/extensions.json

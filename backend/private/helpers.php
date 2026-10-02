@@ -17,10 +17,18 @@ function dataRequest(array $request): mixed
 
 function postUrl(array $post): string
 {
-    return '/archive/' . rawurlencode($post['permaLink']);
+    return '/stories/' . rawurlencode($post['permaLink']);
 }
 
 function displayDate(string $date, string $timezone): string
 {
     return (new DateTimeImmutable($date))->setTimezone(new DateTimeZone($timezone))->format('F j, Y');
+}
+
+function websiteContentValue(array $websiteContent, string $key, string $default = ''): string
+{
+    foreach ($websiteContent['items'] ?? [] as $item) {
+        if (($item['key'] ?? null) === $key && is_string($item['value'] ?? null)) return $item['value'];
+    }
+    return $default;
 }

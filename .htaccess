@@ -8,17 +8,19 @@ RewriteEngine On
 RewriteRule (^|/)\. - [F,END]
 RewriteRule ^(?:backend|frontend|includes|node_modules|vendor|tools)(?:/|$) - [F,END,NC]
 
-# Three public PHP entry points.
+# Public PHP entry points.
 RewriteRule ^$ index.php [END]
+RewriteRule ^about$ /about/ [R=302,END]
+RewriteRule ^about/$ about/index.php [END]
 RewriteRule ^admin$ /admin/ [R=302,END]
 RewriteRule ^admin/$ admin/index.php [END]
-RewriteRule ^archive$ /archive/ [R=302,END]
-RewriteRule ^archive/$ archive/index.php [END]
-RewriteRule ^archive/([a-z0-9]+(?:-[a-z0-9]+)*)/?$ archive/index.php?slug=$1 [END]
-RewriteRule ^(?:404|index|admin/index|archive/index)\.php$ - [END]
+RewriteRule ^stories$ /stories/ [R=302,END]
+RewriteRule ^stories/$ stories/index.php [END]
+RewriteRule ^stories/([a-z0-9]+(?:-[a-z0-9]+)*)/?$ stories/index.php?slug=$1 [END]
+RewriteRule ^(?:404|index|about/index|admin/index|stories/index)\.php$ - [END]
 
 # Serve existing public assets only; never pass through project files.
 RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^assets/[a-zA-Z0-9/_-]+\.(?:css|js|png|jpe?g|webp|svg|ico|woff2?)$ - [END]
+RewriteRule ^assets/[a-zA-Z0-9/_-]+\.(?:css|js|gif|png|jpe?g|webp|svg|ico|woff2?)$ - [END]
 
 RewriteRule ^ - [R=404,END]

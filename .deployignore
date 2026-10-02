@@ -4,9 +4,42 @@
 # Git files
 .git/
 .gitignore
+.deployignore
+.github/
 
 # TIFF source artwork
 *.tif
 *.tiff
 *.TIF
 *.TIFF
+
+
+# Local credentials and private working data
+backend/private/config/database.php
+backend/private/data/*.json
+backend/private/data/*.lock
+backend/private/data/.save-*
+
+# React/Vite development environment
+frontend/
+
+# Unused development API
+backend/public/
+
+# Local tooling and notes
+code snippets.md
+
+# Dependencies and environment files
+node_modules/
+.env
+.env.*
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*~
+temp/
+
+# Persistent story images managed by the CMS
+assets/uploads/

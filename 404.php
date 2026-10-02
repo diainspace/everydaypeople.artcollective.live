@@ -16,6 +16,7 @@ try {
 }
 
 $pageTitle = 'Page not found';
+$mainClass = 'error-page';
 $metaDescription = 'The requested page could not be found.';
 
 require __DIR__ . '/includes/header.php';
